@@ -1,6 +1,6 @@
 # Infinite Scroll Blog
 
-Filterable infinite scrolling blog, with posts from [jsonplaceholder](https://jsonplaceholder.typicode.com/).
+Filterable infinite scrolling blog, with posts from [JSONPlaceholder](https://jsonplaceholder.typicode.com/).
 
 Blog posts from jsonplaceholder and add infinite scroll to fetch posts and add filter box
 
