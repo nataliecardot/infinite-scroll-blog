@@ -13,6 +13,28 @@ async function getPosts() {
 
   const data = await res.json();
 
-  // Note data returned is also a promise; use async/await
+  // Note data returned is also a promise; use await when calling getPosts()
   return data;
 }
+
+// Show posts in DOM
+async function showPosts() {
+  const posts = await getPosts();
+
+  posts.forEach((post) => {
+    const postEl = document.createElement('div');
+    postEl.classList.add('post');
+    postEl.innerHTML = `
+      <div class="number">${post.id}</div>
+      <div class="post-info">
+        <h2 class="post-title">${post.title}</h2>
+        <p class="post-body">${post.body}</p>
+      </div>
+    `;
+
+    postsContainer.appendChild(postEl);
+  });
+}
+
+// Display initial posts
+showPosts();
