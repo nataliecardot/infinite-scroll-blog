@@ -51,6 +51,21 @@ function showLoading() {
   }, 500);
 }
 
+// Filter posts by input (this only works for posts currently in the DOM [already fetched])
+function filterPosts(e) {
+  const term = e.target.value.toLowerCase().trim();
+  const posts = document.querySelectorAll('.post');
+
+  posts.forEach((post) => {
+    const title = post.querySelector('.post-title').innerText.toLowerCase();
+    const body = post.querySelector('.post-body').innerText.toLowerCase();
+
+    title.includes(term) || body.includes(term)
+      ? (post.style.display = 'flex')
+      : (post.style.display = 'none');
+  });
+}
+
 // Display initial posts
 showPosts();
 
@@ -65,3 +80,5 @@ window.addEventListener('scroll', () => {
     showLoading();
   }
 });
+
+filter.addEventListener('input', filterPosts);
